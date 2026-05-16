@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Unannoy</title>
+  <desc id="desc">Tiny tools for wildly annoying tasks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fcf9ff"/>
+      <stop offset="0.55" stop-color="#f2e7ff"/>
+      <stop offset="1" stop-color="#eadcff"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#7c3aed" opacity="0.16"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="70" y="62" width="1060" height="506" rx="42" fill="#ffffff" opacity="0.72" stroke="#d9c4f2" stroke-width="3"/>
+  <rect x="96" y="92" width="220" height="54" rx="27" fill="#f4ecff" stroke="#d9c4f2"/>
+  <circle cx="128" cy="119" r="18" fill="url(#chip)"/>
+  <path d="M119 119h18M128 110v18" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <text x="158" y="127" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#20182e">Unannoy</text>
+  <text x="96" y="282" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#20182e">Tiny tools for wildly</text>
+  <text x="96" y="372" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#20182e">annoying tasks.</text>
+  <text x="100" y="438" font-family="Inter, Arial, sans-serif" font-size="30" fill="#6d5e7d">Clean text, count words, format JSON, preview Markdown.</text>
+  <g transform="translate(816 144)">
+    <rect width="230" height="150" rx="24" fill="#f4ecff" stroke="#c4a2ff" stroke-width="2"/>
+    <rect x="26" y="34" width="132" height="14" rx="7" fill="#7c3aed" opacity="0.42"/>
+    <rect x="26" y="68" width="176" height="12" rx="6" fill="#6d5e7d" opacity="0.28"/>
+    <rect x="26" y="98" width="118" height="12" rx="6" fill="#6d5e7d" opacity="0.22"/>
+  </g>
+  <g transform="translate(884 330)">
+    <rect width="190" height="112" rx="24" fill="url(#chip)" opacity="0.94"/>
+    <text x="28" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#fff">copied</text>
+    <text x="28" y="80" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">One less tiny problem.</text>
+  </g>
+</svg>

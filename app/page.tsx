@@ -1,65 +1,155 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { AnimatedSurface } from "@/components/animated-surface";
+import { RetroWireframeVisual } from "@/components/retro-wireframe-visual";
+import { ToolGrid } from "@/components/tools/tool-grid";
+import { SITE_DESCRIPTION, SITE_TAGLINE } from "@/lib/constants";
+import { toolCategories } from "@/lib/tools/categories";
+import { getPublishedTool, publishedTools } from "@/lib/tools/tool-registry";
+import type { ToolDefinition } from "@/lib/tools/tool-types";
+
+const trustNotes = ["No sign-up", "Runs in your browser", "Fast and free", "Light & dark mode"];
+const featuredSlugs = [
+  "text-cleaner",
+  "word-counter",
+  "url-cleaner",
+  "json-validator",
+  "json-formatter",
+  "markdown-editor",
+];
+const popularSlugs = [
+  "character-counter",
+  "case-converter",
+  "json-minifier",
+  "base64-encoder-decoder",
+  "utm-remover",
+  "url-encoder-decoder",
+];
+
+function isTool(tool: ToolDefinition | undefined): tool is ToolDefinition {
+  return Boolean(tool);
+}
 
 export default function Home() {
+  const featuredTools = featuredSlugs.map(getPublishedTool).filter(isTool);
+  const popularTools = popularSlugs.map(getPublishedTool).filter(isTool);
+  const visibleCategories = toolCategories.filter((category) =>
+    ["text", "developer", "markdown", "links"].includes(category.id),
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="overflow-hidden">
+      <section className="relative mx-auto grid min-w-0 max-w-7xl gap-10 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-center lg:px-8">
+        <div className="absolute inset-0 -z-10 dot-grid opacity-45" />
+        <div className="min-w-0">
+          <p className="inline-flex rounded-full border border-border bg-surface/80 px-4 py-2 text-sm font-medium text-muted shadow-sm">
+            Unannoy fixes tiny annoying digital tasks.
           </p>
+          <h1 className="mt-6 max-w-4xl break-words text-4xl font-semibold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            {SITE_TAGLINE}
+          </h1>
+          <p className="mt-6 max-w-2xl break-words text-lg leading-8 text-muted">{SITE_DESCRIPTION}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/text-cleaner"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 font-medium text-background shadow-sm transition hover:opacity-90"
+            >
+              Start with Text Cleaner <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/tools"
+              className="inline-flex items-center justify-center rounded-full border border-border bg-surface/80 px-6 py-3 font-medium transition hover:bg-surface-soft"
+            >
+              Browse all tools
+            </Link>
+          </div>
+          <ul className="mt-7 grid gap-3 text-sm text-muted sm:grid-cols-2">
+            {trustNotes.map((note) => (
+              <li key={note} className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-accent" />
+                {note}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <RetroWireframeVisual />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Featured tools</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight">Useful first. Playful second.</h2>
+          </div>
+          <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+            See the full drawer <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-      </main>
+        <ToolGrid tools={featuredTools} />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <AnimatedSurface className="p-7 md:p-9" hover>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">why this exists</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">Small tasks should not demand five tabs.</h2>
+          <p className="mt-4 leading-7 text-muted">
+            Small tasks should not require ugly websites, sign-ups, popups, or five tabs. Unannoy gives you tiny tools
+            that just do the thing.
+          </p>
+        </AnimatedSurface>
+        <AnimatedSurface className="p-7 md:p-9" hover>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">privacy first</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">Your browser does the work.</h2>
+          <p className="mt-4 leading-7 text-muted">
+            Most tools process data directly in your browser. No account. No saved history. No unnecessary uploads.
+          </p>
+        </AnimatedSurface>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Categories</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight">A tidy shelf for little fixes</h2>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {visibleCategories.map((category) => {
+            const count = publishedTools.filter((tool) => tool.category === category.id).length;
+            return (
+              <Link
+                key={category.id}
+                href={category.href}
+                className="rounded-[24px] border border-border bg-surface/72 p-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/50"
+              >
+                <h3 className="text-xl font-semibold">{category.title}</h3>
+                <p className="mt-2 text-sm text-muted">{count ? `${count} published tools` : "Coming later, not linked to drafts"}</p>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Popular tools</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight">The chores most likely to steal your afternoon</h2>
+        </div>
+        <ToolGrid tools={popularTools} />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+        <div className="rounded-[34px] border border-border bg-foreground p-8 text-background shadow-[var(--shadow)] md:p-12">
+          <h2 className="max-w-3xl text-4xl font-semibold tracking-tight">Fix the tiny thing annoying you.</h2>
+          <p className="mt-4 max-w-2xl text-background/75">
+            Paste the messy bit, push a button, and get back to the task you actually meant to do.
+          </p>
+          <Link
+            href="/tools"
+            className="mt-7 inline-flex rounded-full bg-background px-6 py-3 font-medium text-foreground"
+          >
+            Pick a tool
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fcf9ff;
+  --foreground: #20182e;
+  --surface: #ffffff;
+  --surface-soft: #f4ecff;
+  --surface-strong: #eadcff;
+  --border: #d9c4f2;
+  --muted: #6d5e7d;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --accent: #c026d3;
+  --ring: #a855f7;
+  --shadow: 0 20px 60px rgb(124 58 237 / 0.17);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #151021;
+  --foreground: #f7f0ff;
+  --surface: #1d172b;
+  --surface-soft: #271f38;
+  --surface-strong: #342848;
+  --border: #493a63;
+  --muted: #c6b8da;
+  --primary: #c4a2ff;
+  --primary-foreground: #1a102d;
+  --accent: #f0abfc;
+  --ring: #d6bcff;
+  --shadow: 0 22px 70px rgb(0 0 0 / 0.32);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-strong: var(--surface-strong);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 12% 8%, rgb(147 51 234 / 0.22), transparent 28rem),
+    radial-gradient(circle at 86% 18%, rgb(192 38 211 / 0.16), transparent 24rem),
+    radial-gradient(circle at 62% 92%, rgb(244 114 182 / 0.12), transparent 22rem),
+    linear-gradient(180deg, var(--background), var(--surface-soft));
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+button,
+textarea,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+textarea,
+input,
+select {
+  outline-color: var(--ring);
+}
+
+::selection {
+  background: rgb(109 63 209 / 0.24);
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgb(130 92 180 / 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(130 92 180 / 0.13) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgb(117 82 155 / 0.24) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
