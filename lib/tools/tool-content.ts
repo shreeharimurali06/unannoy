@@ -1,3 +1,5 @@
+import { extraToolContent } from "@/lib/tools/extra-tool-content";
+
 export type ToolContentFaq = {
   question: string;
   answer: string;
@@ -8,6 +10,7 @@ export type ToolContent = {
   whatThisDoes: string;
   whenToUse: string;
   howItWorks: string;
+  limitations?: string;
   useCases: string[];
   faqs: ToolContentFaq[];
 };
@@ -513,6 +516,7 @@ export const toolContent = {
       },
     ],
   },
+  ...extraToolContent,
 } satisfies Record<string, ToolContent>;
 
 export const categoryContent = {

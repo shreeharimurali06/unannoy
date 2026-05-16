@@ -4,19 +4,17 @@ import { categoryContent } from "@/lib/tools/tool-content";
 
 export const metadata: Metadata = {
   title: "Time Tools",
-  description: "Unannoy time tools are planned for timers, stopwatches, and small timing utilities.",
+  description: "Simple Unannoy time tools for browser timers, stopwatches, laps, reading estimates, and speaking estimates.",
   alternates: { canonical: "/time-tools" },
-  robots: { index: false, follow: true },
 };
 
 export default function TimeToolsPage() {
   return (
     <ToolCategoryPage
       eyebrow="Time tools"
-      title="Timing tools are warming up."
+      title="Small timers for tiny deadlines."
       description={categoryContent.time.intro}
       categories={["time"]}
-      emptyTitle="No published time tools yet."
     />
   );
 }

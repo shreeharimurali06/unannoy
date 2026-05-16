@@ -1,0 +1,85 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Unannoy icon</title>
+  <desc id="desc">A playful purple rounded digital smile icon with terminal prompt, minus and plus symbols for the Unannoy brand.</desc>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5D2B92"/>
+      <stop offset="0.48" stop-color="#32164F"/>
+      <stop offset="1" stop-color="#160D2A"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="120" y1="88" x2="404" y2="408" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3E8FF"/>
+      <stop offset="0.42" stop-color="#CFA7FF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="softStroke" x1="142" y1="110" x2="374" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#D8B4FE"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(250)">
+      <stop offset="0" stop-color="#B983FF" stop-opacity="0.34"/>
+      <stop offset="0.55" stop-color="#8B5CF6" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#11091F" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="48" y="48" width="416" height="416" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#A855F7" flood-opacity="0.22"/>
+    </filter>
+    <filter id="innerGlow" x="70" y="70" width="372" height="372" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 H 0 V 32" stroke="#D8B4FE" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- App tile -->
+  <rect x="42" y="42" width="428" height="428" rx="108" fill="url(#bg)"/>
+  <rect x="42" y="42" width="428" height="428" rx="108" fill="url(#glow)"/>
+  <rect x="78" y="78" width="356" height="356" rx="82" fill="url(#grid)" opacity="0.72"/>
+  <rect x="43.5" y="43.5" width="425" height="425" rx="106.5" stroke="#D8B4FE" stroke-opacity="0.20" stroke-width="3"/>
+
+  <!-- Main mark -->
+  <g filter="url(#shadow)">
+    <!-- rounded digital frame, intentionally open in the lower-right to feel like a tool/window -->
+    <path d="M167 149
+             H340
+             C370.9 149 396 174.1 396 205
+             V315
+             M396 350
+             V363
+             M396 363
+             H370
+             M146 335
+             V205
+             C146 174.1 171.1 149 202 149"
+          stroke="url(#stroke)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- terminal prompt -->
+    <path d="M189 205 L221 233 L189 261" stroke="url(#softStroke)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M253 232 H306" stroke="url(#softStroke)" stroke-width="20" stroke-linecap="round"/>
+
+    <!-- two calm eyes -->
+    <circle cx="218" cy="305" r="13" fill="#E9D5FF"/>
+    <circle cx="304" cy="305" r="13" fill="#E9D5FF"/>
+
+    <!-- relief smile -->
+    <path d="M197 350 C222 381 296 391 328 349" stroke="url(#softStroke)" stroke-width="20" stroke-linecap="round" fill="none"/>
+
+    <!-- plus sign -->
+    <path d="M359 372 V417" stroke="url(#stroke)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M337 394 H382" stroke="url(#stroke)" stroke-width="22" stroke-linecap="round"/>
+  </g>
+
+  <!-- subtle sparkle accents -->
+  <g filter="url(#innerGlow)" opacity="0.9">
+    <path d="M363 105 L371 125 L391 133 L371 141 L363 161 L355 141 L335 133 L355 125 L363 105Z" fill="#E9D5FF" opacity="0.9"/>
+    <circle cx="133" cy="154" r="5" fill="#C084FC" opacity="0.8"/>
+    <circle cx="399" cy="250" r="4" fill="#E9D5FF" opacity="0.7"/>
+  </g>
+</svg>

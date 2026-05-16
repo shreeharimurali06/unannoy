@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
@@ -15,8 +15,16 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/78 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
+          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-2xl shadow-sm">
+            <Image
+              src="/unannoy-icon.svg"
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9"
+              priority
+              aria-hidden="true"
+            />
           </span>
           <span className="text-lg">Unannoy</span>
         </Link>

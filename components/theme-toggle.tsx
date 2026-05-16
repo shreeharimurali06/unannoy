@@ -40,7 +40,7 @@ export function ThemeToggle() {
     window.localStorage.setItem("unannoy-theme", nextTheme);
     document.documentElement.classList.toggle("dark", nextTheme === "dark");
     window.dispatchEvent(new Event(THEME_EVENT));
-    trackEvent("theme_changed", { theme: nextTheme });
+    trackEvent("theme_changed", { action: nextTheme });
   }
 
   return (

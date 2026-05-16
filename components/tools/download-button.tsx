@@ -23,7 +23,7 @@ export function DownloadButton({
     link.download = filename;
     link.click();
     URL.revokeObjectURL(url);
-    trackEvent("tool_used", { tool_slug: toolSlug, action: "download", length_bucket: getLengthBucket(content.length) });
+    trackEvent("download_clicked", { tool_slug: toolSlug, action: "download", length_bucket: getLengthBucket(content.length) });
   }
 
   return (

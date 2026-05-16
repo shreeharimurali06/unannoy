@@ -12,18 +12,21 @@ const trustNotes = ["No sign-up", "Runs in your browser", "Fast and free", "Ligh
 const featuredSlugs = [
   "text-cleaner",
   "word-counter",
-  "url-cleaner",
-  "json-validator",
   "json-formatter",
-  "markdown-editor",
+  "markdown-viewer",
+  "qr-code-generator",
+  "image-compressor",
+  "online-timer",
+  "url-cleaner",
 ];
 const popularSlugs = [
   "character-counter",
-  "case-converter",
-  "json-minifier",
+  "remove-extra-spaces",
+  "find-and-replace",
   "base64-encoder-decoder",
-  "utm-remover",
-  "url-encoder-decoder",
+  "markdown-table-generator",
+  "utm-builder",
+  "stopwatch",
 ];
 
 function isTool(tool: ToolDefinition | undefined): tool is ToolDefinition {
@@ -34,7 +37,7 @@ export default function Home() {
   const featuredTools = featuredSlugs.map(getPublishedTool).filter(isTool);
   const popularTools = popularSlugs.map(getPublishedTool).filter(isTool);
   const visibleCategories = toolCategories.filter((category) =>
-    ["text", "developer", "markdown", "links"].includes(category.id),
+    ["text", "developer", "markdown", "links", "image", "time"].includes(category.id),
   );
 
   return (

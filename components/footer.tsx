@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const email = "contact@unannoy.com";
 
@@ -7,7 +8,10 @@ export function Footer() {
     <footer className="border-t border-border/70 bg-surface/40">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 text-sm text-muted sm:px-6 md:grid-cols-[1fr_auto] lg:px-8">
         <div>
-          <p className="font-semibold text-foreground">Unannoy</p>
+          <div className="flex items-center gap-2 font-semibold text-foreground">
+            <Image src="/unannoy-icon.svg" alt="" width={28} height={28} className="h-7 w-7 rounded-xl" aria-hidden="true" />
+            <span>Unannoy</span>
+          </div>
           <p className="mt-2 max-w-xl">
             Tiny tools for wildly annoying tasks. Local-first, no sign-up, and allergic to unnecessary popups.
           </p>

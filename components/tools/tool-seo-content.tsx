@@ -3,6 +3,7 @@ export type ToolContent = {
   whatThisDoes: string;
   whenToUse: string;
   howItWorks: string;
+  limitations?: string;
   useCases: string[];
   faqs: { question: string; answer: string }[];
 };
@@ -34,6 +35,12 @@ export function ToolSEOContent({ content }: { content: ToolContent }) {
           ))}
         </ul>
       </section>
+      {content.limitations ? (
+        <section className="rounded-[28px] border border-border bg-surface/72 p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Limitations</h2>
+          <p className="mt-4 leading-7 text-muted">{content.limitations}</p>
+        </section>
+      ) : null}
     </div>
   );
 }

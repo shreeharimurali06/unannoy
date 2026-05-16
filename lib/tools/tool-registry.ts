@@ -1,8 +1,7 @@
 import type { ToolCategory, ToolDefinition, ToolStatus } from "@/lib/tools/tool-types";
+import { additionalPublishedTools } from "@/lib/tools/additional-tool-definitions";
 
 const published = "published" satisfies ToolStatus;
-const draft = "draft" satisfies ToolStatus;
-const planned = "planned" satisfies ToolStatus;
 
 export const toolRegistry: ToolDefinition[] = [
   {
@@ -285,55 +284,8 @@ export const toolRegistry: ToolDefinition[] = [
     relatedTools: ["markdown-viewer", "word-counter", "reading-time-calculator", "slug-generator"],
     isLocalOnly: true,
   },
-  ...makeDrafts([
-    ["remove-extra-spaces", "Remove Extra Spaces", "text"],
-    ["remove-empty-lines", "Remove Empty Lines", "text"],
-    ["find-and-replace", "Find and Replace Text", "text"],
-    ["text-diff-checker", "Text Diff Checker", "text"],
-    ["speaking-time-calculator", "Speaking Time Calculator", "text"],
-    ["instagram-line-breaks", "Instagram Line Break Formatter", "social-writing"],
-    ["instagram-character-counter", "Instagram Character Counter", "social-writing"],
-    ["twitter-character-counter", "X/Twitter Character Counter", "social-writing"],
-    ["linkedin-post-formatter", "LinkedIn Post Formatter", "social-writing"],
-    ["whatsapp-text-formatter", "WhatsApp Text Formatter", "social-writing"],
-    ["meta-description-checker", "Meta Description Length Checker", "social-writing"],
-    ["xml-validator", "XML Validator", "developer"],
-    ["html-formatter", "HTML Formatter", "developer"],
-    ["css-formatter", "CSS Formatter", "developer"],
-    ["javascript-formatter", "JavaScript Formatter", "developer"],
-    ["markdown-to-html", "Markdown to HTML", "markdown"],
-    ["html-to-markdown", "HTML to Markdown", "markdown"],
-    ["table-to-markdown", "Table to Markdown", "markdown"],
-    ["markdown-table-generator", "Markdown Table Generator", "markdown"],
-    ["utm-builder", "UTM Builder", "links"],
-    ["qr-code-generator", "QR Code Generator", "links"],
-    ["qr-code-reader", "QR Code Reader", "links"],
-    ["image-compressor", "Image Compressor", "image"],
-    ["image-resizer", "Image Resizer", "image"],
-    ["image-to-webp", "Convert Image to WebP", "image"],
-    ["png-to-jpg", "PNG to JPG Converter", "image"],
-    ["jpg-to-png", "JPG to PNG Converter", "image"],
-    ["remove-image-metadata", "Remove Image Metadata", "image"],
-    ["online-timer", "Online Timer", "time"],
-    ["stopwatch", "Stopwatch", "time"],
-  ]),
+  ...additionalPublishedTools,
 ];
-
-function makeDrafts(items: Array<[slug: string, title: string, category: ToolCategory]>): ToolDefinition[] {
-  return items.map(([slug, title, category], index) => ({
-    slug,
-    title,
-    shortTitle: title,
-    description: `${title} is planned for Unannoy and will stay hidden from public tool grids until it is complete.`,
-    category,
-    status: index < 20 ? draft : planned,
-    seoTitle: `${title} - Unannoy`,
-    seoDescription: `${title} is a planned Unannoy utility. It will not be indexed until the tool is complete and useful.`,
-    keywords: [title.toLowerCase()],
-    relatedTools: [],
-    isLocalOnly: true,
-  }));
-}
 
 export const publishedTools = toolRegistry.filter((tool) => tool.status === "published");
 export const draftTools = toolRegistry.filter((tool) => tool.status === "draft");
