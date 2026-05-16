@@ -106,13 +106,14 @@ http://localhost:3000
 
 ## Environment Variables
 
-Unannoy uses one environment variable today:
+Unannoy can run with no `.env` file locally. For production-like URLs and analytics, use:
 
 ```env
 SITE_URL=https://unannoy.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
-Create a local `.env` from the example if you want production-like sitemap, canonical, robots, and Open Graph URLs:
+Create a local `.env` from the example if you want production-like sitemap, canonical, robots, Open Graph URLs, or GA4 testing:
 
 ```bash
 cp .env-example .env
@@ -125,6 +126,8 @@ http://localhost:3000
 ```
 
 Real `.env*` files are ignored. `.env-example` is committed.
+
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` is optional. When it is missing, Google Analytics is not loaded and local development keeps working.
 
 ## Scripts
 
@@ -352,6 +355,7 @@ Set this environment variable in Vercel:
 
 ```env
 SITE_URL=https://unannoy.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 No database, server secrets, auth providers, or storage buckets are required for V1.
