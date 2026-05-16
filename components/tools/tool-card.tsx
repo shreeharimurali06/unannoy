@@ -52,7 +52,7 @@ export function ToolCard({ tool }: { tool: ToolDefinition }) {
           <p className="mt-2 text-sm leading-6 text-muted">{tool.description}</p>
         </div>
         <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
-          Open tool <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          Open {tool.shortTitle} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
         </span>
       </Link>
     </motion.article>

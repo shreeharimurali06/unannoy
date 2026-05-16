@@ -17,19 +17,19 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap gap-4">
           <Link href="/tools" className="hover:text-foreground">
-            Tools
+            Browse tools
           </Link>
           <Link href="/terms" className="hover:text-foreground">
-            Terms
+            Terms of Use
           </Link>
           <Link href="/privacy" className="hover:text-foreground">
-            Privacy
+            Privacy Policy
           </Link>
           <Link href="/about" className="hover:text-foreground">
-            About
+            About Unannoy
           </Link>
           <Link href="/contact" className="hover:text-foreground">
-            Contact
+            Contact Unannoy
           </Link>
         </nav>
       </div>

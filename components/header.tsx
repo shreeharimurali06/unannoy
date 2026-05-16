@@ -3,11 +3,11 @@ import { Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
-  { href: "/tools", label: "Tools" },
-  { href: "/text-tools", label: "Text" },
-  { href: "/developer-tools", label: "Developer" },
-  { href: "/markdown-tools", label: "Markdown" },
-  { href: "/about", label: "About" },
+  { href: "/tools", label: "All tools" },
+  { href: "/text-tools", label: "Text tools" },
+  { href: "/developer-tools", label: "Developer tools" },
+  { href: "/markdown-tools", label: "Markdown tools" },
+  { href: "/about", label: "About Unannoy" },
 ];
 
 export function Header() {
@@ -36,7 +36,7 @@ export function Header() {
             href="/text-cleaner"
             className="hidden rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:opacity-90 sm:inline-flex"
           >
-            Start
+            Start with Text Cleaner
           </Link>
           <ThemeToggle />
         </div>

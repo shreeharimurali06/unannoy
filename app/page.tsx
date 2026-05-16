@@ -82,7 +82,7 @@ export default function Home() {
             <h2 className="mt-2 text-3xl font-semibold tracking-tight">Useful first. Playful second.</h2>
           </div>
           <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-            See the full drawer <ArrowRight className="h-4 w-4" />
+            Browse all tools <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
         <ToolGrid tools={featuredTools} />
@@ -146,7 +146,7 @@ export default function Home() {
             href="/tools"
             className="mt-7 inline-flex rounded-full bg-background px-6 py-3 font-medium text-foreground"
           >
-            Pick a tool
+            Browse all tools
           </Link>
         </div>
       </section>

@@ -2,11 +2,11 @@ import Link from "next/link";
 import { ArrowRight, Construction } from "lucide-react";
 
 const links = [
-  { href: "/tools", label: "All tools" },
-  { href: "/text-cleaner", label: "Text Cleaner" },
-  { href: "/json-formatter", label: "JSON Formatter" },
-  { href: "/word-counter", label: "Word Counter" },
-  { href: "/url-cleaner", label: "URL Cleaner" },
+  { href: "/tools", label: "Browse all tools" },
+  { href: "/text-cleaner", label: "Open Text Cleaner" },
+  { href: "/json-formatter", label: "Open JSON Formatter" },
+  { href: "/word-counter", label: "Open Word Counter" },
+  { href: "/url-cleaner", label: "Open URL Cleaner" },
 ];
 
 export default function NotFound() {
@@ -21,7 +21,7 @@ export default function NotFound() {
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">This page is still annoying.</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
           The link wandered off, the page never existed, or a tiny internet chore got ideas above its station.
-          Try one of these useful doors instead.
+          These useful pages can get you back to the tools.
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {links.map((link) => (
@@ -39,4 +39,3 @@ export default function NotFound() {
     </main>
   );
 }
-

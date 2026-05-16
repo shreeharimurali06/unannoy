@@ -524,7 +524,7 @@ export const categoryContent = {
     whenToUse:
       "Use it when you need a quick cleanup, count, conversion, preview, or formatting pass and do not want to open a larger app.",
     howItWorks:
-      "Pick a tool, paste the content you are working with, adjust the options, and copy the result when it looks right.",
+      "Choose the specific Unannoy tool for your task, paste the content you are working with, adjust the options, and copy the result when it looks right.",
     useCases: [
       "Fix copied text before sending or publishing it.",
       "Check writing limits and timing estimates.",

@@ -77,9 +77,9 @@ export default function PrivacyPage() {
           </p>
           <p>Google and its partners may use cookies to serve ads based on your visits to this and other websites.</p>
           <p>
-            Learn more at{" "}
+            For details, read{" "}
             <a className="text-primary underline" href="https://policies.google.com/technologies/partner-sites">
-              Google partner sites
+              Google partner-sites advertising policy
             </a>{" "}
             and manage personalization at{" "}
             <a className="text-primary underline" href="https://adssettings.google.com/">
